@@ -3,7 +3,7 @@
 $host = "localhost";
 $dbname = "mahira_database";
 $username = "root";
-$password = "arin12345";
+$password = "";
 
 try {
     $pdo = new PDO(
