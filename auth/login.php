@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['nama_admin'] = $admin['nama'];
                 $_SESSION['username_admin'] = $admin['username'];
 
-                header("Location: dashboard.php");
+                header("Location: ../admin/dashboard.php");
                 exit;
             }
         } catch (Exception $e) {
@@ -379,13 +379,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="login-right">
             <!-- LOGO BRAND -->
             <div class="brand-header">
-                <div class="brand-logo-badge">
-                    <div class="logo-circle">M</div>
-                    <div class="logo-title">
-                        MAHIRA
-                        <span>PRINTING</span>
-                    </div>
-                </div>
+               <div class="brand">
+            
+            
+                <img style="width: 50%;"  src="../assets/images/download.png" alt="">
+          
+        </div>
                 <p>Silakan masuk untuk mengakses dashboard Mahira Printing.</p>
             </div>
 
