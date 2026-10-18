@@ -826,17 +826,18 @@ $initialAvatar = !empty($nama_admin) ? strtoupper(substr($nama_admin, 0, 1)) : '
     <!-- SIDEBAR -->
     <aside class="sidebar" id="sidebar">
         <div class="brand">
-            
-            
-                <img style="width: 80%;"  src="../assets/images/download.png" alt="">
-          
+            <div class="brand-logo">M</div>
+            <div class="brand-details">
+                <span class="brand-text">MAHIRA</span>
+                <span class="brand-sub">PRINTING</span>
+            </div>
         </div>
 
         <div class="menu-section">Menu Utama</div>
 
         <ul class="menu">
             <li><a href="dashboard.php"><i class="fa-solid fa-chart-pie"></i><span class="text">Beranda</span></a></li>
-            <li><a href="index.php"><i class="fa-solid fa-user-gear"></i><span class="text">Kelola Admin</span></a></li>
+            <li><a href="kelola_admin.php"><i class="fa-solid fa-user-gear"></i><span class="text">Kelola Admin</span></a></li>
             <li class="active"><a href="produk.php"><i class="fa-solid fa-box"></i><span class="text">Produk</span></a></li>
             <li><a href="jasa.php"><i class="fa-solid fa-user-tag"></i><span class="text">Jasa</span></a></li>
             <li><a href="portofolio.php"><i class="fa-solid fa-image"></i><span class="text">Portofolio</span></a></li>
