@@ -467,10 +467,11 @@ $initialAvatar = !empty($nama_admin) ? strtoupper(substr($nama_admin, 0, 1)) : '
     <!-- SIDEBAR -->
     <aside class="sidebar" id="sidebar">
         <div class="brand">
-            
-            
-                <img style="width: 80%;"  src="../assets/images/download.png" alt="">
-          
+            <div class="brand-logo">M</div>
+            <div class="brand-details">
+                <span class="brand-text">MAHIRA</span>
+                <span class="brand-sub">PRINTING</span>
+            </div>
         </div>
 
         <div class="menu-section">Menu Utama</div>
