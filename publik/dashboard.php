@@ -1,27 +1,13 @@
 <?php
-$produk = [
-    [
-        'kategori' => 'STIKER',
-        'nama' => 'Stiker Printing',
-        'deskripsi' => 'Stiker custom untuk kebutuhan promosi dan personal.',
-        'harga' => 'Mulai Rp10.000',
-        'gambar' => 'https://images.unsplash.com/photo-1634942536790-253e6e7a97f5?auto=format&fit=crop&w=900&q=85'
-    ],
-    [
-        'kategori' => 'APPAREL',
-        'nama' => 'DTF Printing',
-        'deskripsi' => 'Cetak desain pilihanmu untuk kaos dan merchandise.',
-        'harga' => 'Mulai Rp25.000',
-        'gambar' => 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85'
-    ],
-    [
-        'kategori' => 'MERCHANDISE',
-        'nama' => 'Stempel',
-        'deskripsi' => 'Stempel praktis untuk kebutuhan usaha dan kantor.',
-        'harga' => 'Mulai Rp20.000',
-        'gambar' => 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=900&q=85'
-    ]
-];
+require_once '../config/database.php';
+
+// Mengambil data produk aktif dari database
+try {
+    $stmt = $pdo->query("SELECT * FROM produk WHERE status = 'aktif' ORDER BY id_produk DESC");
+    $produk = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    $produk = [];
+}
 
 $whatsapp = 'https://wa.me/6288291614900';
 ?>
@@ -118,7 +104,7 @@ $whatsapp = 'https://wa.me/6288291614900';
                 Jasa
             </a>
 
-            <a href="portofolio.php" class="hover:text-brand-yellow transition">
+            <a href="portfolio.php" class="hover:text-brand-yellow transition">
                 Portofolio
             </a>
 
@@ -154,7 +140,7 @@ $whatsapp = 'https://wa.me/6288291614900';
         <a href="dashboard.php" class="block py-3 border-b border-gray-800">Beranda</a>
         <a href="#produk" class="block py-3 border-b border-gray-800">Produk</a>
         <a href="jasa.php" class="block py-3 border-b border-gray-800">Jasa</a>
-        <a href="portofolio.php" class="block py-3 border-b border-gray-800">Portofolio</a>
+        <a href="portfolio.php" class="block py-3 border-b border-gray-800">Portofolio</a>
         <a href="#tentang" class="block py-3 border-b border-gray-800">Tentang</a>
         <a href="review.php" class="block py-3">Review</a>
     </nav>
@@ -356,7 +342,7 @@ $whatsapp = 'https://wa.me/6288291614900';
                     </p>
                 </div>
 
-                <a href="jasa.php"
+                <a href="#produk"
                    class="text-xs font-bold border-b border-black pb-1 self-start md:self-auto">
                     Lihat Semua Produk ↗
                 </a>
@@ -364,55 +350,70 @@ $whatsapp = 'https://wa.me/6288291614900';
 
             <div class="grid md:grid-cols-3 gap-5">
 
-                <?php foreach ($produk as $item): ?>
+                <?php if (count($produk) > 0): ?>
+                    <?php foreach ($produk as $item): 
+                        $kategori = !empty($item['kategori']) ? $item['kategori'] : 'PERCETAKAN';
+                        $gambar = !empty($item['gambar']) ? '../uploads/' . $item['gambar'] : '../assets/images/logo.JPEG';
+                        $min_order = !empty($item['minimal_order']) ? 'Min. ' . $item['minimal_order'] . ' pcs' : 'Custom Order';
+                    ?>
 
-                    <article class="product-card bg-white border border-[#e2ddcf] overflow-hidden">
+                        <article class="product-card bg-white border border-[#e2ddcf] overflow-hidden flex flex-col justify-between">
 
-                        <div class="product-image relative h-56 md:h-64 overflow-hidden bg-[#e7e0cc]">
-                            <img
-                                src="<?= htmlspecialchars($item['gambar'], ENT_QUOTES, 'UTF-8') ?>"
-                                alt="<?= htmlspecialchars($item['nama'], ENT_QUOTES, 'UTF-8') ?>"
-                                class="w-full h-full object-cover"
-                                loading="lazy">
+                            <div>
+                                <a href="detail_produk.php?id=<?= $item['id_produk'] ?>" class="product-image block relative h-56 md:h-64 overflow-hidden bg-[#e7e0cc]">
+                                    <img
+                                        src="<?= htmlspecialchars($gambar, ENT_QUOTES, 'UTF-8') ?>"
+                                        alt="<?= htmlspecialchars($item['nama_produk'], ENT_QUOTES, 'UTF-8') ?>"
+                                        class="w-full h-full object-cover"
+                                        loading="lazy">
 
-                            <span class="absolute top-3 left-3 bg-brand-yellow text-black text-[9px] font-black tracking-widest px-3 py-2">
-                                <?= htmlspecialchars($item['kategori'], ENT_QUOTES, 'UTF-8') ?>
-                            </span>
-                        </div>
-
-                        <div class="p-5">
-
-                            <p class="text-[9px] text-yellow-700 font-bold tracking-widest mb-2">
-                                <?= htmlspecialchars($item['kategori'], ENT_QUOTES, 'UTF-8') ?>
-                            </p>
-
-                            <h3 class="font-black text-lg mb-2">
-                                <?= htmlspecialchars($item['nama'], ENT_QUOTES, 'UTF-8') ?>
-                            </h3>
-
-                            <p class="text-gray-600 text-xs leading-5 min-h-9">
-                                <?= htmlspecialchars($item['deskripsi'], ENT_QUOTES, 'UTF-8') ?>
-                            </p>
-
-                            <div class="flex justify-between items-center border-t border-gray-200 mt-4 pt-4">
-                                <span class="font-bold text-xs">
-                                    <?= htmlspecialchars($item['harga'], ENT_QUOTES, 'UTF-8') ?>
-                                </span>
-
-                                <a
-                                    href="<?= htmlspecialchars($whatsapp . '?text=' . rawurlencode('Halo Mahira Printing, saya ingin bertanya tentang ' . $item['nama'] . '.'), ENT_QUOTES, 'UTF-8') ?>"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="bg-brand-yellow w-8 h-8 flex items-center justify-center font-bold hover:bg-yellow-400 transition"
-                                    aria-label="Pesan <?= htmlspecialchars($item['nama'], ENT_QUOTES, 'UTF-8') ?>">
-                                    ↗
+                                    <span class="absolute top-3 left-3 bg-brand-yellow text-black text-[9px] font-black tracking-widest px-3 py-2 uppercase">
+                                        <?= htmlspecialchars($kategori, ENT_QUOTES, 'UTF-8') ?>
+                                    </span>
                                 </a>
+
+                                <div class="p-5">
+
+                                    <p class="text-[9px] text-yellow-700 font-bold tracking-widest mb-2 uppercase">
+                                        <?= htmlspecialchars($kategori, ENT_QUOTES, 'UTF-8') ?>
+                                    </p>
+
+                                    <a href="detail_produk.php?id=<?= $item['id_produk'] ?>" class="font-black text-lg mb-2 block hover:text-yellow-600 transition">
+                                        <?= htmlspecialchars($item['nama_produk'], ENT_QUOTES, 'UTF-8') ?>
+                                    </a>
+
+                                    <p class="text-gray-600 text-xs leading-5 line-clamp-2 min-h-[2.5rem]">
+                                        <?= htmlspecialchars($item['deskripsi'], ENT_QUOTES, 'UTF-8') ?>
+                                    </p>
+
+                                </div>
                             </div>
 
-                        </div>
-                    </article>
+                            <div class="px-5 pb-5">
+                                <div class="flex justify-between items-center border-t border-gray-200 pt-4">
+                                    <span class="font-bold text-xs text-gray-700">
+                                        <?= htmlspecialchars($min_order, ENT_QUOTES, 'UTF-8') ?>
+                                    </span>
 
-                <?php endforeach; ?>
+                                    <a
+                                        href="<?= htmlspecialchars($whatsapp . '?text=' . rawurlencode('Halo Mahira Printing, saya ingin bertanya tentang produk ' . $item['nama_produk'] . '.'), ENT_QUOTES, 'UTF-8') ?>"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="bg-brand-yellow w-8 h-8 flex items-center justify-center font-bold hover:bg-yellow-400 transition"
+                                        aria-label="Pesan <?= htmlspecialchars($item['nama_produk'], ENT_QUOTES, 'UTF-8') ?>">
+                                        ↗
+                                    </a>
+                                </div>
+                            </div>
+
+                        </article>
+
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <div class="col-span-3 text-center py-16 bg-white border border-[#e2ddcf]">
+                        <p class="text-xs text-gray-500 font-bold">Belum ada produk yang tersedia saat ini.</p>
+                    </div>
+                <?php endif; ?>
 
             </div>
         </div>
@@ -449,7 +450,7 @@ $whatsapp = 'https://wa.me/6288291614900';
 
 </main>
 
-<!-- FOOTER SESUAI FIGMA -->
+<!-- FOOTER -->
 <footer class="bg-black text-white border-t border-gray-900 py-6 px-6 md:px-12">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
 
