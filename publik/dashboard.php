@@ -30,7 +30,7 @@ $whatsapp = 'https://wa.me/6288291614900';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahira Printing</title>
+    <title>Mahira Printing - Beranda</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -104,13 +104,14 @@ $whatsapp = 'https://wa.me/6288291614900';
                 class="h-8 md:h-10 object-contain">
         </a>
 
+        <!-- Menu Navigasi Desktop -->
         <nav id="navMenu"
              class="hidden md:flex items-center gap-5 lg:gap-8 text-xs font-semibold text-gray-300">
-            <a href="dashboard.php" class="hover:text-brand-yellow transition">
+            <a href="dashboard.php" class="text-brand-yellow font-bold border-b-2 border-brand-yellow pb-1">
                 Beranda
             </a>
 
-            <a href="#produk" class="hover:text-brand-yellow transition">
+            <a href="produk.php" class="hover:text-brand-yellow transition">
                 Produk
             </a>
 
@@ -122,7 +123,7 @@ $whatsapp = 'https://wa.me/6288291614900';
                 Portofolio
             </a>
 
-            <a href="#tentang" class="hover:text-brand-yellow transition">
+            <a href="tentang.php" class="hover:text-brand-yellow transition">
                 Tentang
             </a>
 
@@ -149,13 +150,14 @@ $whatsapp = 'https://wa.me/6288291614900';
         </div>
     </div>
 
+    <!-- Mobile Menu -->
     <nav id="mobileMenu"
          class="hidden md:hidden max-w-7xl mx-auto pt-4 text-sm text-gray-300">
-        <a href="dashboard.php" class="block py-3 border-b border-gray-800">Beranda</a>
-        <a href="#produk" class="block py-3 border-b border-gray-800">Produk</a>
+        <a href="dashboard.php" class="block py-3 border-b border-gray-800 text-brand-yellow font-bold">Beranda</a>
+        <a href="produk.php" class="block py-3 border-b border-gray-800">Produk</a>
         <a href="jasa.php" class="block py-3 border-b border-gray-800">Jasa</a>
         <a href="portofolio.php" class="block py-3 border-b border-gray-800">Portofolio</a>
-        <a href="#tentang" class="block py-3 border-b border-gray-800">Tentang</a>
+        <a href="tentang.php" class="block py-3 border-b border-gray-800">Tentang</a>
         <a href="review.php" class="block py-3">Review</a>
     </nav>
 </header>
@@ -186,14 +188,17 @@ $whatsapp = 'https://wa.me/6288291614900';
                     </p>
 
                     <div class="flex flex-wrap gap-3">
-                        <a href="#produk"
+                        <a href="produk.php"
                            class="bg-brand-yellow text-black px-5 py-3 rounded-md text-xs font-extrabold hover:bg-yellow-400 transition">
                             Lihat Produk ↗
                         </a>
 
-                        <a href="jasa.php"
+                        <!-- Tombol Konsultasi (Tersambung ke WhatsApp) -->
+                        <a href="<?= htmlspecialchars($whatsapp . '?text=' . rawurlencode('Halo Mahira Printing, saya ingin konsultasi mengenai layanan percetakan.'), ENT_QUOTES, 'UTF-8') ?>"
+                           target="_blank"
+                           rel="noopener noreferrer"
                            class="border border-gray-600 text-white px-5 py-3 rounded-md text-xs font-bold hover:border-brand-yellow hover:text-brand-yellow transition">
-                            Pelajari Layanan
+                            Konsultasi
                         </a>
                     </div>
                 </div>
@@ -356,7 +361,7 @@ $whatsapp = 'https://wa.me/6288291614900';
                     </p>
                 </div>
 
-                <a href="jasa.php"
+                <a href="produk.php"
                    class="text-xs font-bold border-b border-black pb-1 self-start md:self-auto">
                     Lihat Semua Produk ↗
                 </a>
