@@ -69,32 +69,35 @@ $data_review = $stmt->fetchAll();
             <p class="text-xs text-gray-500 text-center mb-8">Dipercaya oleh ribuan pelanggan untuk berbagai kebutuhan cetak</p>
 
             <div class="space-y-3" id="faq-accordion">
-                <div class="border border-yellow-400 rounded-2xl bg-brand-yellow overflow-hidden shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full text-left p-4 font-bold text-sm flex justify-between items-center text-black">
+                <!-- Item FAQ 1 -->
+                <div class="faq-card border border-gray-200 rounded-2xl bg-white overflow-hidden shadow-sm transition-all duration-200">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-4 font-bold text-sm flex justify-between items-center text-gray-800 focus:outline-none">
                         <span>Pengiriman ke luar daerah menggunakan jasa apa?</span>
-                        <span>▲</span>
+                        <span class="faq-arrow text-xs">▼</span>
                     </button>
-                    <div class="p-4 pt-0 text-xs text-gray-900 leading-relaxed font-medium border-t border-yellow-300/60">
+                    <div class="faq-content p-4 pt-0 text-xs text-black leading-relaxed font-medium hidden border-t border-yellow-300/60 mt-1">
                         Pengiriman dapat menggunakan J&T Express atau J&T Cargo. Untuk wilayah lokal, pengiriman juga dapat menggunakan jasa ojek online sesuai kesepakatan.
                     </div>
                 </div>
 
-                <div class="border border-gray-200 rounded-2xl bg-white overflow-hidden shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full text-left p-4 font-bold text-sm flex justify-between items-center text-gray-800">
+                <!-- Item FAQ 2 -->
+                <div class="faq-card border border-gray-200 rounded-2xl bg-white overflow-hidden shadow-sm transition-all duration-200">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-4 font-bold text-sm flex justify-between items-center text-gray-800 focus:outline-none">
                         <span>Lokasi pengiriman dari mana?</span>
-                        <span>▼</span>
+                        <span class="faq-arrow text-xs">▼</span>
                     </button>
-                    <div class="p-4 pt-0 text-xs text-gray-600 leading-relaxed hidden">
+                    <div class="faq-content p-4 pt-0 text-xs text-black leading-relaxed font-medium hidden border-t border-yellow-300/60 mt-1">
                         Pengiriman utama dilakukan dari workshop kami di Bondowoso / Jember, Jawa Timur.
                     </div>
                 </div>
 
-                <div class="border border-gray-200 rounded-2xl bg-white overflow-hidden shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full text-left p-4 font-bold text-sm flex justify-between items-center text-gray-800">
+                <!-- Item FAQ 3 -->
+                <div class="faq-card border border-gray-200 rounded-2xl bg-white overflow-hidden shadow-sm transition-all duration-200">
+                    <button onclick="toggleFaq(this)" class="w-full text-left p-4 font-bold text-sm flex justify-between items-center text-gray-800 focus:outline-none">
                         <span>Berapa lama waktu pengerjaannya?</span>
-                        <span>▼</span>
+                        <span class="faq-arrow text-xs">▼</span>
                     </button>
-                    <div class="p-4 pt-0 text-xs text-gray-600 leading-relaxed hidden">
+                    <div class="faq-content p-4 pt-0 text-xs text-black leading-relaxed font-medium hidden border-t border-yellow-300/60 mt-1">
                         Waktu pengerjaan bervariasi mulai dari 1-3 hari kerja tergantung jenis pesanan dan kuantitas.
                     </div>
                 </div>
@@ -105,14 +108,29 @@ $data_review = $stmt->fetchAll();
 
 <script>
     function toggleFaq(btn) {
-        const content = btn.nextElementSibling;
-        const arrow = btn.querySelector('span:last-child');
-        if (content.classList.contains('hidden')) {
+        const currentCard = btn.closest('.faq-card');
+        const content = currentCard.querySelector('.faq-content');
+        const arrow = currentCard.querySelector('.faq-arrow');
+        const isClosed = content.classList.contains('hidden');
+
+        // Reset semua FAQ ke keadaan semula (latar putih, tertutup)
+        document.querySelectorAll('.faq-card').forEach(card => {
+            card.classList.remove('bg-brand-yellow', 'border-yellow-400');
+            card.classList.add('bg-white', 'border-gray-200');
+            card.querySelector('.faq-content').classList.add('hidden');
+            card.querySelector('.faq-arrow').innerText = '▼';
+            card.querySelector('button').classList.remove('text-black');
+            card.querySelector('button').classList.add('text-gray-800');
+        });
+
+        // Jika item yang diklik tadi sedang tertutup, maka buka dan ubah warnanya jadi kuning
+        if (isClosed) {
+            currentCard.classList.remove('bg-white', 'border-gray-200');
+            currentCard.classList.add('bg-brand-yellow', 'border-yellow-400');
             content.classList.remove('hidden');
             arrow.innerText = '▲';
-        } else {
-            content.classList.add('hidden');
-            arrow.innerText = '▼';
+            btn.classList.remove('text-gray-800');
+            btn.classList.add('text-black');
         }
     }
 </script>

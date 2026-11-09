@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 16, 2026 at 09:31 AM
+-- Generation Time: Oct 19, 2026 at 03:20 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -34,6 +34,14 @@ CREATE TABLE `admin` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id_admin`, `nama`, `username`, `password`, `created_at`) VALUES
+(1, 'Arini Putri Mahira', 'Admins', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '2026-10-17 14:11:55'),
+(4, 'Salsabila Diva', 'Admin2', '$2y$10$gTjGRI25ufA9cl1nmLIT7eFwm7wawtVUz.1N8/bNXZnI5rEt8OkO2', '2026-10-18 10:34:17');
+
 -- --------------------------------------------------------
 
 --
@@ -48,6 +56,13 @@ CREATE TABLE `jasa` (
   `status` enum('aktif','nonaktif') DEFAULT 'aktif',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `jasa`
+--
+
+INSERT INTO `jasa` (`id_jasa`, `nama_jasa`, `gambar`, `deskripsi`, `status`, `created_at`) VALUES
+(1, 'Jasa Desain Grafis', '4a4b98a341fb125b79ca8bca7bcc3fd9.jpg', 'Coba', 'aktif', '2026-10-19 03:05:18');
 
 -- --------------------------------------------------------
 
@@ -80,8 +95,18 @@ CREATE TABLE `produk` (
   `minimal_order` varchar(100) DEFAULT NULL,
   `status` enum('aktif','nonaktif') DEFAULT 'aktif',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `kategori` varchar(600) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `produk`
+--
+
+INSERT INTO `produk` (`id_produk`, `nama_produk`, `gambar`, `deskripsi`, `spesifikasi`, `estimasi_pengerjaan`, `minimal_order`, `status`, `created_at`, `updated_at`, `kategori`) VALUES
+(1, 'jersey', '81e4e9586d6c64c5e2342940f6519535.png', 'scsacc', 'scscss', '3', '3', 'aktif', '2026-10-18 10:35:42', '2026-10-18 10:35:42', ''),
+(2, 'jersey', '3e30fa2cc539cb198972ad81c94382f5.png', 'scsacc', 'scscss', '3', '3', 'aktif', '2026-10-18 10:41:42', '2026-10-18 10:41:42', ''),
+(3, 'jersey', 'c94dad131f9720686058e45deed7a093.png', 'ffff', 'fff', '5', '4', 'aktif', '2026-10-18 11:10:58', '2026-10-18 11:10:58', 'Textile & Sablon');
 
 -- --------------------------------------------------------
 
@@ -100,6 +125,13 @@ CREATE TABLE `review` (
   `status` enum('aktif','nonaktif') DEFAULT 'aktif',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`id_review`, `nama`, `rating`, `ulasan`, `tanggal`, `sumber`, `link_review`, `status`, `created_at`) VALUES
+(1, 'Arini Putri Mahira', 5, 'Mantap Cepat', '2026-10-18', 'Google', '', 'aktif', '2026-10-18 11:56:57');
 
 --
 -- Indexes for dumped tables
@@ -148,12 +180,12 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `jasa`
 --
 ALTER TABLE `jasa`
-  MODIFY `id_jasa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_jasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `portfolio`
 --
@@ -163,12 +195,12 @@ ALTER TABLE `portfolio`
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `id_review` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_review` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

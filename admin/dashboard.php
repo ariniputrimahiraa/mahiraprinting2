@@ -466,7 +466,7 @@ $initialAvatar = !empty($nama_admin) ? strtoupper(substr($nama_admin, 0, 1)) : '
 
     <!-- SIDEBAR -->
     <aside class="sidebar" id="sidebar">
-        <div class="brand">
+       <div class="brand">
             
             
                 <img style="width: 80%;"  src="../assets/images/download.png" alt="">
@@ -532,7 +532,7 @@ $initialAvatar = !empty($nama_admin) ? strtoupper(substr($nama_admin, 0, 1)) : '
             <div class="hero-banner">
                 <div>
                     <span class="label">Panel Kontrol Utama</span>
-                    <h2>Selamat Datang, <?php echo htmlspecialchars($nama_admin); ?>! 👋</h2>
+                    <h2>Selamat Datang, <?php echo htmlspecialchars($nama_admin); ?>!</h2>
                     <p>Kelola konten, produk, dan layanan Mahira Printing melalui dashboard ini.</p>
                 </div>
             </div>

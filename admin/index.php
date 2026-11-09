@@ -9,7 +9,7 @@ if (isset($_SESSION['id_admin'])) {
     exit;
 } else {
     // Jika belum login, arahkan ke halaman login
-    header("Location: /../auth/login.php");
+    header("Location: ../auth/login.php");
     exit;
 }
 ?>
