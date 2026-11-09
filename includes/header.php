@@ -37,13 +37,13 @@ $current_page = basename($_SERVER['PHP_SELF']);
         <nav class="hidden md:flex items-center gap-8 text-xs font-semibold">
             <a href="dashboard.php" class="<?= ($current_page == 'index.php') ? 'text-brand-yellow font-bold border-b-2 border-brand-yellow pb-1' : 'text-gray-300 hover:text-white transition' ?>">Beranda</a>
             
-            <a href="#" class="<?= ($current_page == 'produk.php') ? 'text-brand-yellow font-bold border-b-2 border-brand-yellow pb-1' : 'text-gray-300 hover:text-white transition' ?>">Produk</a>
+            <a href="produk.php" class="<?= ($current_page == 'produk.php') ? 'text-brand-yellow font-bold border-b-2 border-brand-yellow pb-1' : 'text-gray-300 hover:text-white transition' ?>">Produk</a>
             
             <a href="jasa.php" class="<?= ($current_page == 'jasa.php') ? 'text-brand-yellow font-bold border-b-2 border-brand-yellow pb-1' : 'text-gray-300 hover:text-white transition' ?>">Jasa</a>
             
             <a href="portofolio.php" class="<?= ($current_page == 'portofolio.php' || $current_page == 'detail_portofolio.php') ? 'text-brand-yellow font-bold border-b-2 border-brand-yellow pb-1' : 'text-gray-300 hover:text-white transition' ?>">Portofolio</a>
             
-            <a href="#" class="<?= ($current_page == 'tentang.php') ? 'text-brand-yellow font-bold border-b-2 border-brand-yellow pb-1' : 'text-gray-300 hover:text-white transition' ?>">Tentang</a>
+            <a href="tentang.php" class="<?= ($current_page == 'tentang.php') ? 'text-brand-yellow font-bold border-b-2 border-brand-yellow pb-1' : 'text-gray-300 hover:text-white transition' ?>">Tentang</a>
             
             <a href="review.php" class="<?= ($current_page == 'review.php') ? 'text-brand-yellow font-bold border-b-2 border-brand-yellow pb-1' : 'text-gray-300 hover:text-white transition' ?>">Review</a>
         </nav>

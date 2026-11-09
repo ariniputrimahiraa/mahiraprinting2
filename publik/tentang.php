@@ -1,5 +1,8 @@
 <?php
 $whatsapp = 'https://wa.me/6288291614900';
+$address = 'GVJ7+M9Q, Ciriung, Kec. Cibinong, Kabupaten Bogor, Jawa Barat 16918';
+$google_maps_url = 'https://www.google.com/maps/search/?api=1&query=' . urlencode($address);
+$embed_maps_url = 'https://maps.google.com/maps?q=' . urlencode($address) . '&t=&z=16&ie=UTF8&iwloc=&output=embed';
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -196,6 +199,69 @@ $whatsapp = 'https://wa.me/6288291614900';
         </div>
     </section>
 
+    <!-- SECTION LOKASI / GOOGLE MAPS -->
+    <section class="py-14 px-6 md:px-12 border-t border-[#e2ddcf] bg-[#eae4d4]/40">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-8">
+                <p class="text-xs text-yellow-700 font-bold tracking-[3px] uppercase mb-2">
+                    LOKASI KAMI
+                </p>
+                <h2 class="text-3xl md:text-4xl font-black leading-tight">
+                    Kunjungi Toko <span class="text-yellow-600">Mahira Printing.</span>
+                </h2>
+                <p class="text-gray-600 text-xs mt-2">
+                    <?= htmlspecialchars($address) ?>
+                </p>
+            </div>
+
+            <!-- Grid Container Maps + Detail -->
+            <div class="grid md:grid-cols-12 gap-8 items-stretch">
+                <!-- Embed Google Maps -->
+                <div class="md:col-span-8 h-80 md:h-[400px] rounded-2xl overflow-hidden shadow-lg border border-gray-300">
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        loading="lazy" 
+                        allowfullscreen 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="<?= $embed_maps_url ?>">
+                    </iframe>
+                </div>
+
+                <!-- Box Detail Alamat & Buka di Google Maps -->
+                <div class="md:col-span-4 bg-black text-white p-6 md:p-8 rounded-2xl flex flex-col justify-between shadow-xl">
+                    <div>
+                        <span class="text-brand-yellow text-[10px] font-bold tracking-widest uppercase block mb-3">
+                            ALAMAT LENGKAP
+                        </span>
+                        <h3 class="text-xl font-bold mb-4">Mahira Printing</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed mb-6">
+                            <?= htmlspecialchars($address) ?>
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="border-t border-gray-800 pt-4">
+                            <span class="text-gray-400 text-[10px] block uppercase tracking-wider">Patokan / Area</span>
+                            <span class="text-xs font-semibold text-white">Ciriung, Cibinong, Kab. Bogor</span>
+                        </div>
+
+                        <a href="<?= htmlspecialchars($google_maps_url) ?>" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="w-full bg-brand-yellow text-black text-xs font-extrabold py-3.5 px-4 rounded-lg hover:bg-yellow-400 transition flex items-center justify-center gap-2 shadow-md">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            Buka di Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CONTACT INFO SECTION (Hitam) -->
     <section class="bg-black text-white py-14 px-6 md:px-12 border-t border-gray-800">
         <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-8 items-center">
@@ -249,8 +315,11 @@ $whatsapp = 'https://wa.me/6288291614900';
                 </h3>
             </div>
 
-            <a href="<?= htmlspecialchars($whatsapp) ?>" target="_blank" rel="noopener noreferrer" class="bg-black text-brand-yellow text-xs font-extrabold px-6 py-3.5 rounded-lg hover:bg-gray-900 transition text-center self-start md:self-auto">
-                Hubungi Kami ↗
+            <a href="<?= htmlspecialchars($whatsapp . '?text=' . rawurlencode('Halo Mahira Printing, saya ingin bertanya mengenai layanan percetakan.'), ENT_QUOTES, 'UTF-8') ?>"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="bg-black text-brand-yellow text-xs font-extrabold px-7 py-4 rounded-lg hover:bg-gray-900 transition text-center shadow-md shrink-0">
+                Hubungi MAHIRA
             </a>
         </div>
     </section>

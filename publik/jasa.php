@@ -90,7 +90,7 @@ try {
                         </div>
 
                         <!-- Tombol Putih Konsultasi -->
-                        <a href="https://wa.me/" target="_blank" class="w-full bg-white text-black font-bold text-xs py-2.5 rounded-xl text-center hover:bg-gray-50 transition block shadow-xs">
+                        <a href="https://wa.me/6288291614900" target="_blank" class="w-full bg-white text-black font-bold text-xs py-2.5 rounded-xl text-center hover:bg-gray-50 transition block shadow-xs">
                             Konsultasi Jasa →
                         </a>
                     </div>
@@ -100,33 +100,52 @@ try {
             <?php endif; ?>
         </div>
 
-        <!-- 3. Bagian "Cara Kerja Pemesanan Jasa" Presisi Figma (Radius 0, Border #E5E7EB, Fill #EEF1F6) -->
-        <div class="bg-[#EEF1F6] border border-[#E5E7EB] p-8 md:p-10 rounded-none mb-16">
-            <span class="text-[10px] uppercase font-bold text-gray-500 tracking-wider block mb-1">4 LANGKAH PRAKTIS</span>
-            <h3 class="text-2xl font-bold mb-8 text-[#1E293B]">Cara Kerja Pemesanan Jasa</h3>
+        <!-- 3. Bagian "Cara Kerja Pemesanan Jasa" Diperbarui (Clean & Modern Layout) -->
+        <div class="bg-white border border-gray-200 p-8 md:p-12 rounded-2xl shadow-sm mb-16">
+            <div class="max-w-xl mb-10">
+                <span class="text-[10px] uppercase font-extrabold text-yellow-700 tracking-[2px] block mb-2">4 LANGKAH PRAKTIS</span>
+                <h3 class="text-2xl md:text-3xl font-black text-gray-900">Cara Kerja Pemesanan Jasa</h3>
+                <p class="text-xs text-gray-500 mt-2">Proses pemesanan cepat, transparan, dan langsung ditangani oleh tim profesional Mahira Printing.</p>
+            </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div class="p-6 rounded-2xl bg-white shadow-xs">
-                    <h4 class="font-bold text-sm text-black mb-3">1. Konsultasi & Brief</h4>
-                    <p class="text-xs text-gray-500 leading-relaxed">Diskusikan kebutuhan & file desain via WhatsApp.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Langkah 1 -->
+                <div class="p-6 rounded-xl bg-gray-50 border border-gray-100 flex flex-col justify-between hover:border-yellow-400 transition">
+                    <div>
+                        <span class="text-3xl font-black text-yellow-600 block mb-3">01</span>
+                        <h4 class="font-black text-sm text-black mb-2">Konsultasi & Brief</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed">Diskusikan kebutuhan & file desain Anda secara langsung via WhatsApp.</p>
+                    </div>
                 </div>
-                <div class="p-6 rounded-2xl bg-white shadow-xs">
-                    <h4 class="font-bold text-sm text-black mb-3">2. Estimasi & Mockup</h4>
-                    <p class="text-xs text-gray-500 leading-relaxed">Penawaran harga terbaik dan preview produk.</p>
+                <!-- Langkah 2 -->
+                <div class="p-6 rounded-xl bg-gray-50 border border-gray-100 flex flex-col justify-between hover:border-yellow-400 transition">
+                    <div>
+                        <span class="text-3xl font-black text-yellow-600 block mb-3">02</span>
+                        <h4 class="font-black text-sm text-black mb-2">Estimasi & Mockup</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed">Dapatkan penawaran harga terbaik beserta preview/mockup produk.</p>
+                    </div>
                 </div>
-                <div class="p-6 rounded-2xl bg-white shadow-xs">
-                    <h4 class="font-bold text-sm text-black mb-3">3. Proses Produksi</h4>
-                    <p class="text-xs text-gray-500 leading-relaxed">Pencetakan presisi dengan quality control ketat.</p>
+                <!-- Langkah 3 -->
+                <div class="p-6 rounded-xl bg-gray-50 border border-gray-100 flex flex-col justify-between hover:border-yellow-400 transition">
+                    <div>
+                        <span class="text-3xl font-black text-yellow-600 block mb-3">03</span>
+                        <h4 class="font-black text-sm text-black mb-2">Proses Produksi</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed">Pencetakan presisi tinggi dengan quality control yang ketat.</p>
+                    </div>
                 </div>
-                <div class="p-6 rounded-2xl bg-white shadow-xs">
-                    <h4 class="font-bold text-sm text-black mb-3">4. Finishing & Kirim</h4>
-                    <p class="text-xs text-gray-500 leading-relaxed">Dikemas aman dan siap dikirim ke lokasi Anda.</p>
+                <!-- Langkah 4 -->
+                <div class="p-6 rounded-xl bg-gray-50 border border-gray-100 flex flex-col justify-between hover:border-yellow-400 transition">
+                    <div>
+                        <span class="text-3xl font-black text-yellow-600 block mb-3">04</span>
+                        <h4 class="font-black text-sm text-black mb-2">Finishing & Kirim</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed">Dikemas rapi dan aman, siap dikirim langsung ke lokasi Anda.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. Banner Hitam Bottom "Punya kebutuhan cetak?" (Full Width Persegi / Siku) -->
+    <!-- 4. Banner Hitam Bottom "Punya kebutuhan cetak?" -->
     <section class="bg-black text-white py-16 px-6 md:px-16 w-full border-t border-gray-800">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div>
@@ -137,8 +156,8 @@ try {
                 </h2>
             </div>
             <div>
-                <a href="https://wa.me/" target="_blank" class="inline-block bg-brand-yellow text-black font-extrabold px-8 py-3.5 rounded-xl hover:bg-yellow-400 transition text-xs shadow-md">
-                    Hubungi Mahira
+                <a href="https://wa.me/6288291614900" target="_blank" class="inline-block bg-brand-yellow text-black font-extrabold px-8 py-3.5 rounded-xl hover:bg-yellow-400 transition text-xs shadow-md">
+                    Hubungi MAHIRA
                 </a>
             </div>
         </div>
